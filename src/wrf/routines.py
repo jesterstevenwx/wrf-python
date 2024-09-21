@@ -31,6 +31,7 @@ from .g_wind import (get_destag_wspd_wdir, get_destag_wspd_wdir10,
 from .g_times import get_times, get_xtimes
 from .g_cloudfrac import (get_cloudfrac, get_low_cloudfrac, get_mid_cloudfrac,
                           get_high_cloudfrac)
+from .g_ghg import get_xghg
 
 
 # func is the function to call.  kargs are required arguments that should
@@ -97,7 +98,8 @@ _FUNC_MAP = {"cape2d": get_2dcape,
              "wdir10": get_destag_wdir10,
              "low_cloudfrac": get_low_cloudfrac,
              "mid_cloudfrac": get_mid_cloudfrac,
-             "high_cloudfrac": get_high_cloudfrac
+             "high_cloudfrac": get_high_cloudfrac,
+             "column_averaged_ghg": get_xghg
              }
 
 _VALID_KARGS = {"cape2d": ["missing"],
@@ -166,6 +168,7 @@ _VALID_KARGS = {"cape2d": ["missing"],
                                   "mid_thresh", "high_thresh"],
                 "high_cloudfrac": ["vert_type", "low_thresh",
                                    "mid_thresh", "high_thresh"],
+                "column_averaged_ghg": [],
                 "default": []
                 }
 
@@ -197,7 +200,9 @@ _ALIASES = {"cape_2d": "cape2d",
             "wspd_uvmet10": "uvmet10_wspd",
             "wdir_uvmet10": "uvmet10_wdir",
             "mcape": "cape2d_only",
-            "mcin": "cin2d_only"
+            "mcin": "cin2d_only",
+            "xghg": "column_averaged_ghg",
+            "ghg": "column_averaged_ghg"
             }
 
 

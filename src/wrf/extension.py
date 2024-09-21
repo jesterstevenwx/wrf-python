@@ -12,7 +12,7 @@ from wrf._wrffortran import (dcomputetk, dinterp3dz, dinterp2dxy, dinterp1d,
                              dlltoij, dijtoll, deqthecalc, omgcalc,
                              virtual_temp, wetbulbcalc, dcomputepw,
                              wrf_monotonic, wrf_vintrp, dcomputewspd,
-                             dcomputewdir, dinterp3dz_2dlev,
+                             dcomputewdir, dinterp3dz_2dlev, dcomputexghg,
                              fomp_set_num_threads, fomp_get_num_threads,
                              fomp_get_max_threads, fomp_get_thread_num,
                              fomp_get_num_procs, fomp_in_parallel,
@@ -438,6 +438,28 @@ def _uvmet(u, v, lat, lon, cen_long, cone, isstag=0, has_missing=False,
                            uvmetmissing)
 
     return result
+
+@check_args(0, 2, (2, 3, 3, 3, 3))
+@left_iteration(2, 2, ref_var_idx=0)
+@cast_type(arg_idxs=(0, 1, 2, 3, 4))
+@extract_and_transpose()
+def _xghg(sfc_p, pres, ant, bio, bck, outview=None):
+    """
+    Wrapper for dcomputexghg.
+
+    Located in wrf_ghg.f90
+    """
+    if outview is None:
+        outview = np.empty_like(sfc_p)
+    
+    result = dcomputexghg(sfc_p,
+                          pres,
+                          ant,
+                          bio,
+                          bck,
+                          outview)
+
+    return result 
 
 
 @check_args(0, 3, (3, 3, 3, 3))
