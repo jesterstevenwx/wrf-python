@@ -168,7 +168,7 @@ _VALID_KARGS = {"cape2d": ["missing"],
                                   "mid_thresh", "high_thresh"],
                 "high_cloudfrac": ["vert_type", "low_thresh",
                                    "mid_thresh", "high_thresh"],
-                "column_averaged_ghg": [],
+                "column_averaged_ghg": ["ghg"],
                 "default": []
                 }
 

@@ -7,8 +7,8 @@ from .util import extract_vars
 @copy_and_set_metadata(copy_varname='CH4_BCK', name='column_averaged_ghg',
                        description='column averaged ghg',
                        units='ppmv')
-def get_xghg(wrfin, ghg="xch4", timeidx=0, method="cat", squeeze=True,
-             cache=None, meta=True, _key=None):
+def get_xghg(wrfin, timeidx=0, method="cat", squeeze=True,
+             cache=None, meta=True, _key=None, ghg="xch4"):
     """Return column averaged greenhouse gas mixing ratio.
 
      This functions extracts the necessary variables from the NetCDF file
