@@ -10,7 +10,7 @@ SUBROUTINE DCOMPUTEXGHG(sfc_p, pres, nx, ny, nz, ant, bio, bck, xghg)
     REAL(KIND=8), DIMENSION(nx, ny, nz), INTENT(IN) :: ant
     REAL(KIND=8), DIMENSION(nx, ny, nz), INTENT(IN) :: bio
     REAL(KIND=8), DIMENSION(nx, ny, nz), INTENT(IN) :: bck
-    REAL(KIND=8), DIMENSION(nx, ny), INTENT(IN,OUT) :: xghg
+    REAL(KIND=8), DIMENSION(nx, ny), INTENT(OUT) :: xghg
 
     INTEGER :: i, j, k
     REAL(KIND=8), DIMENSION(nx, ny, nz) :: ghg
