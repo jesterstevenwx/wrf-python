@@ -56,3 +56,4 @@ build
 .settings
 src/wrf_python.egg-info
 
+wrfout_d02_2023-07-21_18:00:00

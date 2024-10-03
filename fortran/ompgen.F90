@@ -3,7 +3,7 @@ MODULE omp_constants
     USE omp_lib
 
     INTEGER, PARAMETER :: fomp_sched_kind = 4
-    INTEGER, PARAMETER :: fomp_lock_kind = 8
+    INTEGER, PARAMETER :: fomp_lock_kind = 4
     INTEGER, PARAMETER :: fomp_nest_lock_kind = 8
     INTEGER(KIND=4), PARAMETER :: fomp_sched_static = 1
     INTEGER(KIND=4), PARAMETER :: fomp_sched_dynamic = 2
